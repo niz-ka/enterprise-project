@@ -22,8 +22,9 @@ public class Cart {
 
     @Transient
     public BigDecimal getTotal() {
-        return items
+        return Optional.ofNullable(items)
                 .stream()
+                .flatMap(Collection::stream)
                 .map(item -> item
                         .getMovie()
                         .getPrice()

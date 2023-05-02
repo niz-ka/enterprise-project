@@ -1,6 +1,6 @@
 package com.movies.moviesapi.service;
 
-import com.movies.moviesapi.entity.Cart;
+import com.movies.moviesapi.model.Cart;
 import com.movies.moviesapi.request.ItemRequest;
 
 import java.util.UUID;

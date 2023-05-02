@@ -1,6 +1,6 @@
 package com.movies.moviesapi.service.impl;
 
-import com.movies.moviesapi.entity.Category;
+import com.movies.moviesapi.model.Category;
 import com.movies.moviesapi.repository.CategoryRepository;
 import com.movies.moviesapi.service.CategoryService;
 import jakarta.transaction.Transactional;

@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.response.MovieResponse;
 import com.movies.moviesapi.service.MovieService;
 import org.modelmapper.ModelMapper;

@@ -1,8 +1,8 @@
 package com.movies.moviesapi.service.impl;
 
-import com.movies.moviesapi.entity.Cart;
-import com.movies.moviesapi.entity.Item;
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Cart;
+import com.movies.moviesapi.model.Item;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.repository.CartRepository;
 import com.movies.moviesapi.repository.ItemRepository;
 import com.movies.moviesapi.repository.MovieRepository;

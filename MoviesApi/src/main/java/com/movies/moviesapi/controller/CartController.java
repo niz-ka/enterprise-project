@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Cart;
+import com.movies.moviesapi.model.Cart;
 import com.movies.moviesapi.request.ItemRequest;
 import com.movies.moviesapi.response.CartResponse;
 import com.movies.moviesapi.service.CartService;

@@ -1,6 +1,6 @@
 package com.movies.moviesapi.repository;
 
-import com.movies.moviesapi.entity.Cart;
+import com.movies.moviesapi.model.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

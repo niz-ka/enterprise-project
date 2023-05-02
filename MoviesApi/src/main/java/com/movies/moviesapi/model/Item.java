@@ -1,4 +1,4 @@
-package com.movies.moviesapi.entity;
+package com.movies.moviesapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

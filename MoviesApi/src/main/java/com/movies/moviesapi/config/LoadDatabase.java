@@ -1,7 +1,7 @@
 package com.movies.moviesapi.config;
 
-import com.movies.moviesapi.entity.Category;
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Category;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.repository.CategoryRepository;
 import com.movies.moviesapi.repository.MovieRepository;
 import org.slf4j.Logger;

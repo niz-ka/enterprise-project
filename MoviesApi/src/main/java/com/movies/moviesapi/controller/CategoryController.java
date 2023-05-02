@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Category;
+import com.movies.moviesapi.model.Category;
 import com.movies.moviesapi.response.CategoryResponse;
 import com.movies.moviesapi.service.CategoryService;
 import org.modelmapper.ModelMapper;

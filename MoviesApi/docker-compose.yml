@@ -11,5 +11,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres
+    networks:
+      - net
 volumes:
   postgres_data:
+networks:
+  net:

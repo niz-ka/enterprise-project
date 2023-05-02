@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/api/carts")
 public class CartController {
     private final CartService cartService;
     private final ModelMapper modelMapper;

@@ -17,7 +17,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -39,21 +38,24 @@ class MovieControllerBroadIntegrationTest {
     @Autowired
     private WebTestClient webTestClient;
 
+    private List<Movie> movies;
+
     @BeforeAll
     void seedDatabase() {
         List<Category> categories = categoryRepository.saveAll(
                 Arrays.asList(
-                        new Category(1L, "Drama", new ArrayList<>()),
-                        new Category(2L, "Horror", new ArrayList<>()
-                        )
-                ));
-
-        List<Movie> movies = Arrays.asList(
-                new Movie(1L, "title1", categories.get(0), 1990, "desc1", new BigDecimal("10.10")),
-                new Movie(2L, "title2", categories.get(0), 1991, "desc2", new BigDecimal("11.10")),
-                new Movie(3L, "title3", categories.get(1), 1992, "desc3", new BigDecimal("12.10"))
+                        new Category("Drama"),
+                        new Category("Horror")
+                )
         );
-        repository.saveAll(movies);
+
+        List<Movie> moviesList = Arrays.asList(
+                new Movie("title1", categories.get(0), 1990, "desc1", new BigDecimal("10.10")),
+                new Movie("title2", categories.get(0), 1991, "desc2", new BigDecimal("11.10")),
+                new Movie("title3", categories.get(1), 1992, "desc3", new BigDecimal("12.10"))
+        );
+
+        movies = repository.saveAll(moviesList);
     }
 
     @AfterAll
@@ -81,7 +83,7 @@ class MovieControllerBroadIntegrationTest {
 
     @Test
     void getMovie() {
-        Movie movie = repository.findById(1L).orElseThrow(EntityNotFoundException::new);
+        Movie movie = movies.get(0);
         webTestClient
                 .get().uri("/api/movies/{id}", movie.getId())
                 .exchange()

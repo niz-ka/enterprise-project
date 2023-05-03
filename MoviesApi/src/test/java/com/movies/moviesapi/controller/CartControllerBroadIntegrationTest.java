@@ -20,7 +20,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -48,21 +47,23 @@ class CartControllerBroadIntegrationTest {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    private List<Movie> movies;
+
     @BeforeAll
     void seedDatabase() {
         List<Category> categories = categoryRepository.saveAll(
                 Arrays.asList(
-                        new Category(1L, "Drama", new ArrayList<>()),
-                        new Category(2L, "Horror", new ArrayList<>()
-                        )
-                ));
-
-        List<Movie> movies = Arrays.asList(
-                new Movie(1L, "title1", categories.get(0), 1990, "desc1", new BigDecimal("10.10")),
-                new Movie(2L, "title2", categories.get(0), 1991, "desc2", new BigDecimal("11.10")),
-                new Movie(3L, "title3", categories.get(1), 1992, "desc3", new BigDecimal("12.10"))
+                        new Category("Drama"),
+                        new Category("Horror")
+                )
         );
-        movieRepository.saveAll(movies);
+
+        List<Movie> moviesList = Arrays.asList(
+                new Movie("title1", categories.get(0), 1990, "desc1", new BigDecimal("10.10")),
+                new Movie("title2", categories.get(0), 1991, "desc2", new BigDecimal("11.10")),
+                new Movie("title3", categories.get(1), 1992, "desc3", new BigDecimal("12.10"))
+        );
+        movies = movieRepository.saveAll(moviesList);
     }
 
     @AfterAll
@@ -92,7 +93,7 @@ class CartControllerBroadIntegrationTest {
     @Test
     void replaceItemInCart() {
         Cart cart = repository.save(new Cart());
-        ItemRequest itemRequest = new ItemRequest(1L, 2);
+        ItemRequest itemRequest = new ItemRequest(movies.get(0).getId(), 2);
         webTestClient
                 .patch().uri("/api/carts/{id}", cart.getId())
                 .bodyValue(itemRequest)
@@ -104,8 +105,8 @@ class CartControllerBroadIntegrationTest {
                     CartResponse cartResponse = Objects.requireNonNull(result.getResponseBody());
                     assertEquals(new BigDecimal("20.20"), cartResponse.getTotal());
                     assertEquals(1, cartResponse.getItems().size());
-                    assertEquals(1L, cartResponse.getItems().get(0).getMovieId());
-                    assertTrue(itemRepository.findFirstByCartIdAndMovieId(cart.getId(), 1L).isPresent());
+                    assertEquals(movies.get(0).getId(), cartResponse.getItems().get(0).getMovieId());
+                    assertTrue(itemRepository.findFirstByCartIdAndMovieId(cart.getId(), movies.get(0).getId()).isPresent());
                 });
     }
 

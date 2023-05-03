@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.response.MovieResponse;
 import com.movies.moviesapi.service.MovieService;
 import org.modelmapper.ModelMapper;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/movies")
+@RequestMapping("/api/movies")
 public class MovieController {
     private final MovieService movieService;
     private final ModelMapper modelMapper;

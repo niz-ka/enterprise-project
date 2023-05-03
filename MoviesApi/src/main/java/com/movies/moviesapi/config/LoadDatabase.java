@@ -1,7 +1,7 @@
 package com.movies.moviesapi.config;
 
-import com.movies.moviesapi.entity.Category;
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Category;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.repository.CategoryRepository;
 import com.movies.moviesapi.repository.MovieRepository;
 import org.slf4j.Logger;
@@ -9,10 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import java.math.BigDecimal;
 
 @Configuration
+@Profile("!test")
 public class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 

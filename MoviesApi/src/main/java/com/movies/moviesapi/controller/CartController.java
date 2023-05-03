@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Cart;
+import com.movies.moviesapi.model.Cart;
 import com.movies.moviesapi.request.ItemRequest;
 import com.movies.moviesapi.response.CartResponse;
 import com.movies.moviesapi.service.CartService;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/api/carts")
 public class CartController {
     private final CartService cartService;
     private final ModelMapper modelMapper;
@@ -44,7 +44,7 @@ public class CartController {
     }
 
     @PostMapping
-    public ResponseEntity<CartResponse> newCart() {
+    public ResponseEntity<CartResponse> createCart() {
         Cart cart = cartService.createCart();
         CartResponse cartResponse = this.convertToCartResponse(cart);
         return new ResponseEntity<>(cartResponse, HttpStatus.CREATED);

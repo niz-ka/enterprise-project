@@ -1,6 +1,6 @@
 package com.movies.moviesapi.controller;
 
-import com.movies.moviesapi.entity.Category;
+import com.movies.moviesapi.model.Category;
 import com.movies.moviesapi.response.CategoryResponse;
 import com.movies.moviesapi.service.CategoryService;
 import org.modelmapper.ModelMapper;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class CategoryController {
     private final CategoryService categoryService;
     private final ModelMapper modelMapper;

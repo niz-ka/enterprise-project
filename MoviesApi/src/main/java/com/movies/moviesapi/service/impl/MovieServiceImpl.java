@@ -1,6 +1,6 @@
 package com.movies.moviesapi.service.impl;
 
-import com.movies.moviesapi.entity.Movie;
+import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.repository.MovieRepository;
 import com.movies.moviesapi.service.MovieService;
 import jakarta.persistence.EntityNotFoundException;

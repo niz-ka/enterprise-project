@@ -1,6 +1,6 @@
 package com.movies.moviesapi.service;
 
-import com.movies.moviesapi.entity.Category;
+import com.movies.moviesapi.model.Category;
 
 import java.util.List;
 

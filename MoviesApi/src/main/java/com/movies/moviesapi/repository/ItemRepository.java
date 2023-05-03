@@ -1,6 +1,6 @@
 package com.movies.moviesapi.repository;
 
-import com.movies.moviesapi.entity.Item;
+import com.movies.moviesapi.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

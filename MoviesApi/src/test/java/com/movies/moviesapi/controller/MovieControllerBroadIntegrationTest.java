@@ -5,7 +5,6 @@ import com.movies.moviesapi.model.Movie;
 import com.movies.moviesapi.repository.CategoryRepository;
 import com.movies.moviesapi.repository.MovieRepository;
 import com.movies.moviesapi.response.MovieResponse;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

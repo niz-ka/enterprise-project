@@ -12,7 +12,7 @@ jobs:
   runner-job:
     # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-22.04
-
+    permissions: write-all
     # Service containers to run with `runner-job`
     services:
       # Label used to access the service container
@@ -47,3 +47,16 @@ jobs:
 
       - name: Run tests
         run: mvn test -f ./MoviesApi/pom.xml
+
+      - name: Generate coverage
+        if: github.event_name == 'pull_request'
+        run: mvn jacoco:report -f ./MoviesApi/pom.xml
+      
+      - name: Add coverage to PR
+        if: github.event_name == 'pull_request'
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/MoviesApi/target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          

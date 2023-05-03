@@ -44,7 +44,7 @@ public class CartController {
     }
 
     @PostMapping
-    public ResponseEntity<CartResponse> newCart() {
+    public ResponseEntity<CartResponse> createCart() {
         Cart cart = cartService.createCart();
         CartResponse cartResponse = this.convertToCartResponse(cart);
         return new ResponseEntity<>(cartResponse, HttpStatus.CREATED);

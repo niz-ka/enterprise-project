@@ -47,3 +47,14 @@ jobs:
 
       - name: Run tests
         run: mvn test -f ./MoviesApi/pom.xml
+
+      - name: Generate coverage
+        run: mvn jacoco:report -f ./MoviesApi/pom.xml
+      
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.3
+        with:
+          paths: ${{ github.workspace }}/MoviesApi/target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          

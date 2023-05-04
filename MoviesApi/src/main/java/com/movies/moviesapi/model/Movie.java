@@ -40,11 +40,23 @@ public class Movie {
     @Column(nullable = false)
     private BigDecimal price;
 
+    @Column
+    private String image;
+
     public Movie(String title, Category category, Integer year, String description, BigDecimal price) {
         this.title = title;
         this.category = category;
         this.year = year;
         this.description = description;
         this.price = price;
+    }
+
+    public Movie(String title, Category category, Integer year, String description, BigDecimal price, String image) {
+        this.title = title;
+        this.category = category;
+        this.year = year;
+        this.description = description;
+        this.price = price;
+        this.image = image;
     }
 }

@@ -15,4 +15,5 @@ public class MovieResponse {
     private Integer year;
     private String description;
     private BigDecimal price;
+    private String image;
 }

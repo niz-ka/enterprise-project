@@ -46,7 +46,7 @@ class CartServiceImplTest {
     @BeforeEach
     void initTest() {
         cart = new Cart(UUID.randomUUID(), new ArrayList<>());
-        movie = new Movie(100L, ":title:", new Category(":cat:"), 1990, ":desc:", new BigDecimal("20.20"));
+        movie = new Movie(100L, ":title:", new Category(":cat:"), 1990, ":desc:", new BigDecimal("20.20"), null);
         itemRequest = new ItemRequest(100L, 1);
     }
 

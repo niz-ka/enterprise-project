@@ -18,5 +18,8 @@ public class ItemResponse {
     @JsonProperty("price")
     private BigDecimal moviePrice;
 
+    @JsonProperty("image")
+    private String movieImage;
+
     private Integer quantity;
 }
